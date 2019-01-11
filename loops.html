@@ -18,6 +18,12 @@
         .answer {
             color: darkblue;
         }
+        .fizz-buzz {
+            display: grid;
+            grid-template-columns: repeat(25, auto);
+            grid-template-rows: repeat(4, auto);
+
+        }
     </style>
 </head>
 <body>
@@ -27,20 +33,62 @@
         <div class="triangle answer"></div>
     </div>
 
+    <div class="code-test">
+        <header>FizzBuzz Challenge</header>
+        <div class="fizz-buzz"></div>
+    </div>
+
 
 <script>
 
+    // My Answer to Triangle Loop
     let triangle = document.querySelector('.triangle');
     let hash = '';
 
-    for (i = 1; i <= 7; i++) {
+    for (i = 0; i < 7; i++) {
 
         let currentHash = '#';
         hash += currentHash;
-        para = document.createElement("p");
+        para = document.createElement('p');
         para.textContent = hash;
         triangle.appendChild(para);
     }
+
+    // Book Answer to Triangle Loop
+    // for (let line = '#'; line.length < 8; line += '#')
+    //     console.log(line);
+
+
+    // My Answer to FizzBuzz
+    let fizzBuzz = document.querySelector('.fizz-buzz');
+    let entry = '';
+
+    for (i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            entry = 'FizzBuzz';
+        } else if (i % 3 === 0) {
+            entry = 'Fizz';
+        } else if (i % 5 === 0) {
+            entry = 'Buzz';
+        } else {
+            entry = i;
+        }
+
+        para = document.createElement('p');
+        para.textContent = entry;
+        fizzBuzz.appendChild(para);
+    }
+
+    // Book Answer to FizzBuzz
+    // for (let n = 1; n <= 100; n++) {
+    //     let output = "";
+    //     if (n % 3 == 0) output += "Fizz";
+    //     if (n % 5 == 0) output += "Buzz";
+    //     console.log(output || n);
+    // }
+
+
+
 
 
 
