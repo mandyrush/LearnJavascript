@@ -6,12 +6,43 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Loops</title>
+
+    <style>
+        .code-test {
+            padding: 2rem;
+        }
+        header {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .answer {
+            color: darkblue;
+        }
+    </style>
 </head>
 <body>
 
+    <div class="code-test">
+        <header>Triangle Loop</header>
+        <div class="triangle answer"></div>
+    </div>
 
 
 <script>
+
+    let triangle = document.querySelector('.triangle');
+    let hash = '';
+
+    for (i = 1; i <= 7; i++) {
+
+        let currentHash = '#';
+        hash += currentHash;
+        para = document.createElement("p");
+        para.textContent = hash;
+        triangle.appendChild(para);
+    }
+
+
 
 </script>
 
