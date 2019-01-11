@@ -10,10 +10,23 @@
     <style>
         .code-test {
             padding: 2rem;
+            display: grid;
+            grid-template-columns: 25% auto;
+            grid-template-rows: repeat(2, auto);
+            grid-row-gap: 1rem;
         }
         header {
             font-size: 2rem;
             font-weight: bold;
+        }
+        .description {
+            display: flex;
+            align-items: center;
+        }
+        .chess-desc {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .answer {
             color: darkblue;
@@ -22,7 +35,15 @@
             display: grid;
             grid-template-columns: repeat(25, auto);
             grid-template-rows: repeat(4, auto);
-
+            grid-column: 1/3;
+        }
+        .chessboard-btn {
+            width: 5rem;
+            max-height: 3rem;
+            background-color: darkblue;
+            color: white;
+            border-radius: 5rem;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -30,12 +51,26 @@
 
     <div class="code-test">
         <header>Triangle Loop</header>
+        <div class="description">Write a loop that makes 7 calls & outputs a triangle made of #'s.</div>
         <div class="triangle answer"></div>
     </div>
 
     <div class="code-test">
         <header>FizzBuzz Challenge</header>
+        <div class="description">Write a program that prints all numbers from 1 to 100. For all numbers divisible by 3 print Fizz, for all numbers divisible by 5 print Buzz. For any numbers divisible by both 3 and 5 print FizzBuzz, otherwise just print the number.</div>
         <div class="fizz-buzz"></div>
+    </div>
+
+    <div class="code-test">
+        <header>Chessboard</header>
+        <div class="description chess-desc">
+            <header>Part 1</header>
+            <span>Write a program that creates a string that represents an 8X8 grid, using new-line characters to separate lines. At each position of the grid there is either a space or a # character forming a chessboard.</span>
+            <header >Part 2</header>
+            <span>Define a binding size = 8 and update the program to work for any size outputting a grid of the given width and height.</span>
+        </div>
+        <button class="chessboard-btn">Click Me</button>
+        <div class="chessboard"></div>
     </div>
 
 
@@ -88,9 +123,58 @@
     // }
 
 
+    // My Answer to Chessboard
+    // Part 1
+    let chessBoard = document.querySelector('.chessboard-btn');
+
+    let board = ' # # # #\n# # # # \n # # # #\n# # # # \n # # # #\n# # # # \n # # # #\n# # # # \n';
+
+    chessBoard.onclick = function() {
+        alert(board);
+    };
 
 
+    // Part 2
+    let gridSize = 8;
+    let row = '';
 
+    for (i = 0; i < gridSize; i++){
+        if (i % 2 === 0) {
+            row = '-';
+        } else {
+            row = '#';
+        }
+        for (j = 1; j < gridSize; j++){
+            let pos = row.length-1;
+            let lastChar = row.charAt(pos);
+            if (lastChar === '-') {
+                row += '#';
+            } else {
+                row += '-';
+            }
+        }
+
+        let chessboardDiv = document.querySelector('.chessboard');
+        para = document.createElement('p');
+        para.textContent = row;
+        chessboardDiv.appendChild(para);
+    }
+
+    // Book Answer to Chessboard
+    // let size = 8;
+    // let board = "";
+    //
+    // for (let y = 0; y < size; y++) {
+    //     for (let x = 0; x < size; x++) {
+    //         if ((x + y) % 2 == 0) {
+    //             board += " ";
+    //         } else {
+    //             board += "#";
+    //         }
+    //     }
+    //     board += "\n";
+    // }
+    // console.log(board);
 
 </script>
 
