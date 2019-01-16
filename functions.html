@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="code-test">
+    <header>Min Function</header>
+    <div class="description">Write a function that takes two values and returns the smaller value of the two.</div>
+    <div class="min">
+        <label for="value-one">First Value</label>
+        <input type="text" name="value-one" id="value-one">
+
+        <label for="value-two">Second Value</label>
+        <input type="text" name="value-two" id="value-two">
+
+        <button type="submit" class="min-btn">Submit</button>
+
+        <p class="min-answer">The smaller number is: </p>
+    </div>
+</div>
+
+<script>
+
+    // My Answer to Minimum Function
+    function minimum(val1, val2) {
+       return Math.min(val1, val2);
+    }
+
+    let minBtn = document.querySelector('.min-btn');
+    let minAnswer = document.querySelector('.min-answer');
+
+    minBtn.onclick = function () {
+        let value1 = document.querySelector('#value-one').value;
+        let value2 = document.querySelector('#value-two').value;
+
+        let minNum = minimum(value1, value2);
+
+        minAnswer.textContent += minNum;
+    };
+
+    // Book Answer to Minimum Function
+    // function min(a, b) {
+    //     if (a < b) return a;
+    //     else return b;
+    // }
+    //
+    // console.log(min(0, 10));
+    // console.log(min(0, -10));
+
+</script>
+
+</body>
+</html>
