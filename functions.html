@@ -11,21 +11,34 @@
 </head>
 <body>
 
-<div class="code-test">
-    <header>Min Function</header>
-    <div class="description">Write a function that takes two values and returns the smaller value of the two.</div>
-    <div class="min">
-        <label for="value-one">First Value</label>
-        <input type="text" name="value-one" id="value-one">
+    <div class="code-test">
+        <header>Min Function</header>
+        <div class="description">Write a function that takes two values and returns the smaller value of the two.</div>
+        <div class="min">
+            <label for="value-one">First Value</label>
+            <input type="text" name="value-one" id="value-one">
 
-        <label for="value-two">Second Value</label>
-        <input type="text" name="value-two" id="value-two">
+            <label for="value-two">Second Value</label>
+            <input type="text" name="value-two" id="value-two">
 
-        <button type="submit" class="min-btn">Submit</button>
+            <button type="submit" class="min-btn">Submit</button>
 
-        <p class="min-answer">The smaller number is: </p>
+            <p class="min-answer">The smaller number is: </p>
+        </div>
     </div>
-</div>
+
+    <div class="code-test">
+        <header>Recursive Function</header>
+        <div class="description">Write a function using recursion that determines whether a number, either positive or negative, is even or odd.</div>
+        <div class="recursion">
+            <label for="input-value">Enter a number</label>
+            <input type="text" name="input-value" id="input-value">
+
+            <button class="recursive-btn" type="submit">Submit</button>
+
+            <p class="recursive-answer">Your number is: </p>
+        </div>
+    </div>
 
 <script>
 
@@ -43,7 +56,7 @@
 
         let minNum = minimum(value1, value2);
 
-        minAnswer.textContent += minNum;
+        minAnswer.textContent = 'The smaller number is: ' + minNum;
     };
 
     // Book Answer to Minimum Function
@@ -54,6 +67,49 @@
     //
     // console.log(min(0, 10));
     // console.log(min(0, -10));
+
+
+    // My Answer to Recursion Function
+    let recursiveBtn = document.querySelector('.recursive-btn');
+    let recursiveAnswer = document.querySelector('.recursive-answer');
+
+    let isEven = function (number) {
+        if (number === 0) {
+            return 'Even';
+        } else if (number === 1) {
+            return 'Odd';
+        } else {
+            if (number < 0) {
+                return isEven(number + 2);
+            } else {
+                return isEven(number - 2);
+            }
+
+        }
+    };
+
+    recursiveBtn.onclick = function () {
+
+        let inputValue = Number(document.querySelector('#input-value').value);
+        let answer = isEven(inputValue);
+
+        recursiveAnswer.textContent = 'Your number is: ' + answer;
+    };
+
+    // Book Answer to Recursive Function
+    // function isEven(n) {
+    //     if (n == 0) return true;
+    //     else if (n == 1) return false;
+    //     else if (n < 0) return isEven(-n);
+    //     else return isEven(n - 2);
+    // }
+    //
+    // console.log(isEven(50));
+    // // → true
+    // console.log(isEven(75));
+    // // → false
+    // console.log(isEven(-1));
+    // // → false
 
 </script>
 
