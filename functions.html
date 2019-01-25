@@ -40,6 +40,24 @@
         </div>
     </div>
 
+    <div class="code-test">
+        <header>Letter Count Function</header>
+        <div class="description">Write a function that takes two arguments, a string and a letter, and returns how many of the given letters are in the given string.</div>
+        <div class="letter-count">
+            <label for="string-value">Enter a word or sentence</label>
+            <input type="text" name="string-value" id="string-value">
+
+            <label for="letter">Enter a letter</label>
+            <input type="text" name="letter" id="letter">
+
+            <button class="letter-count-btn" type="submit">Submit</button>
+
+            <p class="letter-count-answer">Your sentence has: </p>
+        </div>
+    </div>
+
+
+
 <script>
 
     // My Answer to Minimum Function
@@ -110,6 +128,53 @@
     // // → false
     // console.log(isEven(-1));
     // // → false
+
+
+    // My Answer to Letter Count Function
+    function countLetters (string, letter) {
+        let n = 0;
+        for (i = 0; i < string.length; i++) {
+            if (string[i] === letter) {
+                n++;
+            }
+        }
+        return n;
+    }
+
+    let letterCountBtn = document.querySelector('.letter-count-btn');
+    let letterCountAnswer = document.querySelector('.letter-count-answer');
+
+    letterCountBtn.onclick = function () {
+        let stringValue = document.querySelector('#string-value').value;
+        let letter = document.querySelector('#letter').value;
+        let number = countLetters(stringValue, letter);
+
+        if (number === 1) {
+            letterCountAnswer.textContent = 'Your sentence has: ' + number + ' ' + letter + '.';
+        } else {
+            letterCountAnswer.textContent = 'Your sentence has: ' + number + ' ' + letter + '\'s.';
+        }
+    };
+
+    // Book Answer to Letter Count Function
+    // function countChar(string, ch) {
+    //     let counted = 0;
+    //     for (let i = 0; i < string.length; i++) {
+    //         if (string[i] == ch) {
+    //             counted += 1;
+    //         }
+    //     }
+    //     return counted;
+    // }
+    //
+    // function countBs(string) {
+    //     return countChar(string, "B");
+    // }
+    //
+    // console.log(countBs("BBC"));
+    // // → 2
+    // console.log(countChar("kakkerlak", "k"));
+    // // → 4
 
 </script>
 
