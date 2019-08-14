@@ -35,6 +35,6 @@ header {
     border-radius: 5rem;
     cursor: pointer;
 }
-.min, .letter-count {
+.min, .letter-count, .show-range, .sum-of-range, .step-of-range {
     grid-column: 1/3;
 }

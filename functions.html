@@ -61,8 +61,12 @@
 <script>
 
     // My Answer to Minimum Function
-    function minimum(val1, val2) {
-       return Math.min(val1, val2);
+    function minimum(a, b) {
+       if(a < b) {
+           return a;
+       } else {
+           return b;
+       }
     }
 
     let minBtn = document.querySelector('.min-btn');
@@ -72,7 +76,7 @@
         let value1 = document.querySelector('#value-one').value;
         let value2 = document.querySelector('#value-two').value;
 
-        let minNum = minimum(value1, value2);
+        let minNum = minimum(Number(value1), Number(value2));
 
         minAnswer.textContent = 'The smaller number is: ' + minNum;
     };

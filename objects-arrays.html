@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objects & Arrays</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="code-test">
+        <header>Show Number Range</header>
+
+        <div class="description">
+            Write a range function that takes two arguments, start and end, and returns an array containing
+            all the numbers from start up to (and including) end.
+        </div>
+
+        <div class="show-range">
+            <label for="range-start">Starting Number:</label>
+            <input type="number" id="range-start">
+
+            <label for="range-end">Ending Number:</label>
+            <input type="number" id="range-end">
+
+            <button class="range-btn">Submit</button>
+
+            <p class="range-answer">Your numbers are: </p>
+        </div>
+    </div>
+
+
+    <div class="code-test">
+        <header>Sum of a Range</header>
+
+        <div class="description">
+            Write a range function that takes two arguments, start and end, and returns the sum of
+            these numbers.
+        </div>
+
+        <div class="sum-of-range">
+            <label for="sum-start">Starting Number:</label>
+            <input type="number" id="sum-start">
+
+            <label for="sum-end">Ending Number:</label>
+            <input type="number" id="sum-end">
+
+            <button class="sum-btn">Submit</button>
+
+            <p class="sum-answer">The sum of your range is:  </p>
+        </div>
+    </div>
+
+
+    <div class="code-test">
+        <header>Show Range with Step</header>
+
+        <div class="description">
+            Write a range function that takes three arguments start, end, and step and returns an array containing
+            all the numbers from start up to (and including) end and incrementing by the step amount if there is one.
+        </div>
+
+        <div class="step-of-range">
+            <label for="step-start">Starting Number:</label>
+            <input type="number" id="step-start">
+
+            <label for="step-end">Ending Number:</label>
+            <input type="number" id="step-end">
+
+            <label for="step">Increment By:</label>
+            <input type="number" id="step">
+
+            <button class="step-btn">Submit</button>
+
+            <p class="step-answer">Your numbers are:  </p>
+        </div>
+    </div>
+
+<script>
+    // My Answer to Show Range of Numbers
+    function range(start, end) {
+        let numberRange = [];
+
+        for(let i = start; i <= end; i++) {
+            numberRange.push(i);
+        }
+        return numberRange;
+    }
+
+    let rangeButton = document.querySelector('.range-btn');
+
+    rangeButton.onclick = () => {
+        let rangeAnswer = document.querySelector('.range-answer');
+        let startingNumber = document.querySelector('#range-start').value;
+        let endingNumber = document.querySelector('#range-end').value;
+
+        rangeAnswer.textContent = 'Your numbers are: ' + range(Number(startingNumber), Number(endingNumber));
+    };
+
+    // My Answer to Sum of a Range
+    function sumRange(start, end) {
+        let total = 0;
+
+        for(let i = start; i <= end; i++) {
+            total += i;
+        }
+
+        return total;
+    }
+
+    let sumButton = document.querySelector('.sum-btn');
+
+    sumButton.onclick = () => {
+        let sumAnswer = document.querySelector('.sum-answer');
+        let startingNumber = document.querySelector('#sum-start').value;
+        let endingNumber = document.querySelector('#sum-end').value;
+
+        sumAnswer.textContent = 'The sum of your range is: ' + sumRange(Number(startingNumber), Number(endingNumber));
+    };
+
+    // My Answer to Sum of a Range with step increment
+    function stepRange(start, end, step = start < end ? 1 : -1) {
+        let numberRange = [];
+
+        if(step > 0) {
+            for(i = start; i <= end; i+= step) {
+                numberRange.push(i);
+            }
+        } else {
+            for(i = start; i >= end; i+= step) {
+                numberRange.push(i);
+            }
+        }
+
+        return numberRange;
+    }
+
+    let stepButton = document.querySelector('.step-btn');
+
+    stepButton.onclick = () => {
+        let stepAnswer = document.querySelector('.step-answer');
+        let startingNumber = document.querySelector('#step-start').value;
+        let endingNumber = document.querySelector('#step-end').value;
+        let step = Number(document.querySelector('#step').value);
+
+        stepAnswer.textContent = 'Your numbers are: ' + stepRange(Number(startingNumber), Number(endingNumber), Number(step));
+    };
+
+    // Book Answer to Range of Numbers with Step Increment
+    // function range(start, end, step = start < end ? 1 : -1) {
+    //     let array = [];
+    //
+    //     if (step > 0) {
+    //         for (let i = start; i <= end; i += step) array.push(i);
+    //     } else {
+    //         for (let i = start; i >= end; i += step) array.push(i);
+    //     }
+    //     return array;
+    // }
+    //
+    // function sum(array) {
+    //     let total = 0;
+    //     for (let value of array) {
+    //         total += value;
+    //     }
+    //     return total;
+    // }
+    //
+    // console.log(range(1, 10))
+    // // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // console.log(range(5, 2, -1));
+    // // → [5, 4, 3, 2]
+    // console.log(sum(range(1, 10)));
+    // // → 55
+</script>
+
+</body>
+</html>
