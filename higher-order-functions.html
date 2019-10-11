@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objects & Arrays</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+    // My Answer to Function to Flatten Array of Arrays
+    let arrays = [[1, 2, 3], [4, 5], [6]];
+
+    function flatten(array) {
+        return array.reduce((a, b) => {
+            return a.concat(b);
+        })
+    }
+
+    console.log(flatten(arrays));
+
+    // Book Answer to Function to Flatten Array of Arrays
+    // let arrays = [[1, 2, 3], [4, 5], [6]];
+    //
+    // console.log(arrays.reduce((flat, current) => flat.concat(current), []));
+    // → [1, 2, 3, 4, 5, 6]
+</script>
+
+</body>
+</html>
