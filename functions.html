@@ -180,6 +180,24 @@
     // console.log(countChar("kakkerlak", "k"));
     // // → 4
 
+
+    // Recursive Function from edx.org computer science course
+    // if n = 1 Stop
+    // if n is even repeat this process on n/2
+    // if n is odd repeat this process on 3n + 1
+    // write a recursive function called collatz(n) that calculates how many steps it takes to get to 1
+
+    function collatz(n) {
+        if (n === 1) {
+            return 0;
+        } else if ((n % 2) === 0) {
+            return 1 + collatz(n / 2);
+        } else {
+            return 1 + collatz(3 * n + 1);
+        }
+    }
+    console.log(collatz(3));
+
 </script>
 
 </body>
