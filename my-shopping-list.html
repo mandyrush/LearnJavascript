@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Shopping List</title>
+</head>
+<body>
+    <h1>My Shopping List</h1>
+
+    <div>
+        <label for="item">Enter a new item: </label>
+        <input type="text" id="item" name="item" autofocus>
+        <button>Add item</button>
+    </div>
+
+    <ul></ul>
+
+<script>
+    let addBtn = document.querySelector('button');
+    let item = document.querySelector('input');
+    let list = document.querySelector('ul');
+
+    function addNewItem (item) {
+
+        let listItem = document.createElement('li');
+        listItem.textContent = item.value;
+
+        let deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.style.marginLeft = '5px';
+
+        listItem.append(deleteBtn);
+        list.appendChild(listItem);
+
+        deleteBtn.addEventListener('click', () => {
+            list.removeChild(listItem);
+            item.value = '';
+            item.focus();
+        });
+
+        item.value = '';
+        item.focus();
+    }
+
+    addBtn.addEventListener('click', () => {
+        addNewItem(item);
+    });
+</script>
+</body>
+</html>
